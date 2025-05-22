@@ -12,19 +12,19 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD_Do4ViCwm09gW12RlPgYRycZXrN0UFWg",
-  authDomain: "gerenciador-de-recurso.firebaseapp.com",
-  databaseURL: "https://gerenciador-de-recurso-default-rtdb.firebaseio.com",
-  projectId: "gerenciador-de-recurso",
-  storageBucket: "gerenciador-de-recurso.firebasestorage.app",
-  messagingSenderId: "884782094916",
-  appId: "1:884782094916:web:86b8315667f84a38443a11",
-  measurementId: "G-FMMB4DJHJW"
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  databaseURL: process.env.REACT_APP_databaseURL,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
+  measurementId: process.env.REACT_APP_measurementId
 };
 
+console.log('Firebase config:', firebaseConfig);
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
 // Inicializa o Firestore com configurações otimizadas
 const db = initializeFirestore(app, {
   experimentalForceLongPolling: true,
